@@ -26,7 +26,7 @@ func UploadImage(c *gin.Context) {
 	t := time.Now()
 	year := t.Year()   // type int
 	month := t.Month() // type time.Month
-	file, image, err := c.Request.FormFile("file")
+	file, image, err := c.Request.FormFile("image")
 	if err != nil {
 		logging.Warn(err)
 		code = e.ERROR
