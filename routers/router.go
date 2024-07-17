@@ -16,6 +16,6 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Recovery())
 	r.Use(middlewares.Cors())
 	r.StaticFS("/upload/images", http.Dir(upload.GetImageFullPath()))
-	r.POST("upload", app.UploadImage)
+	r.POST("upload", middlewares.AuthByAvaImgServer(), app.UploadImage)
 	return r
 }
